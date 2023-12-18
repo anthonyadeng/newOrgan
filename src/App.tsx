@@ -14,22 +14,22 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        {/* <Dropdown callback={handleDropdown} /> */}
-        {/* {images.map((image, index) => (
-          <img key={index} src={image} className='App-logo' alt='logo' />
-        ))} */}
-        <Checkbox labels={['One', 'Two', 'Three']} />
+        <Checkbox
+          labels={[
+            'One',
+            'Two',
+            'Three',
+            'red',
+            'blue',
+            'green',
+            'dog',
+            'cat',
+            'fish',
+          ]}
+        />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
