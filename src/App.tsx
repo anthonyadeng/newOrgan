@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Dropdown from './components/Dropdown';
 import Checkbox from './components/Checkbox';
+import Todo from './components/Todo';
 
 function App() {
   const [images, setImages] = useState<string[]>([]);
@@ -14,6 +15,9 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
+        <h1>Todo List</h1>
+        <Todo todos={[]} completed={[]} />
+        <h1>Checkbox</h1>
         <Checkbox
           labels={[
             'One',
