@@ -71,12 +71,11 @@ const Dropdown = ({
       style={{
         border: '1px solid black',
         backgroundColor: 'white',
-        height: '200px',
-        width: '200px',
+        height: '1rem',
+        width: '10rem',
         padding: '.5rem',
         textAlign: 'start',
         fontSize: '20px',
-        visibility: 'visible',
         color: '#010101',
         borderRadius: '5px',
       }}
@@ -85,22 +84,52 @@ const Dropdown = ({
         setOpen(!open);
       }}
     >
-      clickawefawefwafe
-      {/* <div
-        id='fieldsWrapper'
+      <div
+        id='fieldsCurrentWrapper'
         style={{
-          visibility: open ? 'visible' : 'hidden',
-          height: '0px',
-          width: '200px',
-          position: 'absolute',
           display: 'flex',
-          flexDirection: 'column',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
           alignItems: 'center',
-          justifyContent: 'center',
+          width: '100%',
+          height: '100%',
         }}
       >
-        {fields.current.items}
-      </div> */}
+        <div
+          id='fieldsCurrentSelected'
+          style={{
+            width: '80%',
+            height: '100%',
+          }}
+        >
+          {fields.current.selected}
+        </div>
+        <div
+          id='fieldsCurrentArrow'
+          style={{
+            width: '20%',
+            height: '100%',
+          }}
+        >
+          {open ? '▲' : '▼'}
+        </div>
+        {fields.current.selected}
+        <div
+          id='fieldsWrapper'
+          style={{
+            visibility: open ? 'visible' : 'hidden',
+            height: '0px',
+            width: '200px',
+            position: 'absolute',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          {fields.current.items}
+        </div>
+      </div>
     </div>
   );
 };

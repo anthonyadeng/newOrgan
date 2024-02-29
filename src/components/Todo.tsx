@@ -48,39 +48,51 @@ const Todo = (props: TodoProps) => {
         gap: '.5rem .5rem',
       }}
     >
-      <h3>Add New</h3>
-      <input type='text' id='newTodo' name='newTodo' />
-      <button
-        onClick={() => {
-          const newTodo = (
-            document.getElementById('newTodo') as HTMLInputElement
-          ).value;
-          setTodos([...todos, newTodo]);
-          (document.getElementById('newTodo') as HTMLInputElement).value = '';
-        }}
-      >
-        Add
-      </button>
-      <h3>Todo</h3>
-      {todos.map((label) => (
-        <SingleSelectable
-          cssValues={cssValues.current}
-          key={label}
-          label={label}
-          checked={false}
-          handleClick={addToCompleted}
-        />
-      ))}
-      <h3>Completed</h3>
-      {completed.map((label) => (
-        <SingleSelectable
-          cssValues={cssValues.current}
-          key={label}
-          label={label}
-          checked={true}
-          handleClick={addToTodos}
-        />
-      ))}
+      <div id='addNewWrapper'>
+        <h3>Add New</h3>
+        <input type='text' id='newTodo' name='newTodo' />
+        <button
+          onClick={() => {
+            if (
+              (document.getElementById('newTodo') as HTMLInputElement).value !==
+              ''
+            ) {
+              const newTodo = (
+                document.getElementById('newTodo') as HTMLInputElement
+              ).value;
+              setTodos([...todos, newTodo]);
+              (document.getElementById('newTodo') as HTMLInputElement).value =
+                '';
+            }
+          }}
+        >
+          Add
+        </button>
+      </div>
+      <div id='todoWrapper'>
+        <h3>Todo</h3>
+        {todos.map((label) => (
+          <SingleSelectable
+            cssValues={cssValues.current}
+            key={label}
+            label={label}
+            checked={false}
+            handleClick={addToCompleted}
+          />
+        ))}
+      </div>
+      <div id='completedWrapper'>
+        <h3>Completed</h3>
+        {completed.map((label) => (
+          <SingleSelectable
+            cssValues={cssValues.current}
+            key={label}
+            label={label}
+            checked={true}
+            handleClick={addToTodos}
+          />
+        ))}
+      </div>
     </div>
   );
 };
