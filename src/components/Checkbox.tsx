@@ -17,7 +17,7 @@ const CheckboxContainer = (props: CheckboxContainerProps) => {
   };
   const debouncedSelected = useDebounce(selected, 1000);
 
-  const cssValues = useRef({
+  const style = useRef({
     width: '500px',
     height: '100px',
     border: '1px solid black',
@@ -37,7 +37,7 @@ const CheckboxContainer = (props: CheckboxContainerProps) => {
     <div
       id='checkbox-wrapper'
       style={{
-        width: cssValues.current.width,
+        width: style.current.width,
         display: 'flex',
         flexFlow: 'row wrap',
         justifyContent: 'space-evenly',
@@ -49,11 +49,12 @@ const CheckboxContainer = (props: CheckboxContainerProps) => {
     >
       {labels.map((label) => (
         <SingleSelectable
-          cssValues={cssValues.current}
+          style={style.current}
           key={label}
           label={label}
           checked={selected[label]}
           handleClick={handleClick}
+          deletable={false}
         />
       ))}
     </div>

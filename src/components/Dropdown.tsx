@@ -22,7 +22,7 @@ const Dropdown = ({
 
   const [open, setOpen] = useState(false);
 
-  const cssValues = {
+  const style = {
     width: '200px',
     height: '100px',
     border: '1px solid black',
@@ -48,14 +48,14 @@ const Dropdown = ({
           onClick={(e) => handleClick(e)}
           style={{
             display: 'flex',
-            width: cssValues.width,
-            padding: cssValues.padding,
+            width: style.width,
+            padding: style.padding,
             justifyContent: 'left',
-            border: cssValues.border,
+            border: style.border,
             backgroundColor:
               fields.current.selected === item
-                ? cssValues.highlightColor
-                : cssValues.backgroundColor,
+                ? style.highlightColor
+                : style.backgroundColor,
           }}
           key={item}
         >
